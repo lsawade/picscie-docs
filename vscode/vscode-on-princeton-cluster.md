@@ -12,6 +12,9 @@ the the HPC cluster from the comfort of your comfortzone.
 1. [Remote Development Extension](#remote-development-extension) -> [External Docs](https://code.visualstudio.com/docs/remote/remote-overview)
 2. [Jupyter Notebooks](#jupyter-notebooks) -> [External Docs](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
 
+***DISCLAIMER***: At this moment this does not work for Traverse because 
+`vscode-server` does not natively support IBM Power9 architecture.
+
 ## Remote Development Extension
 
 The Remote Development Extension (RDE) allows the user to access the filesystem
@@ -36,11 +39,27 @@ the default directory of the ssh command. Let's go through this step by step.
     <img src="figures/remoteexplorer.png" width="25%" class="center"/>
     </p>
 
-    _Screenshot from local machine. The red circle indicates the button that brings you to the 'Remote Explorer'. The green circle enables you to add a new host manually. The blue circle indicates the button that will open a remote folder that is defined in your `.ssh/config`_
+    _Screenshot from local machine. The red circle indicates the button that
+    brings you to the 'Remote Explorer'. The green circle enables you to add a
+    new host manually. The blue circle indicates the button that will open a
+    remote folder that is defined in your `~/.ssh/config`_
 
 3. Now, you should be able to connect to the remote machine using two ways.
-   Either you connect manually by clicking on the `+` indicated by the green circle in the above figure and enter your ssh command as you usually connect,
-   you use the configuration of an existing `.ssh/config`.
+   Either you connect manually by clicking on the `+` indicated by the green
+   circle in the above figure and enter your ssh command as you usually connect,
+   you use the configuration of an existing `~/.ssh/config`.
+
+4. After connecting vscode should open a new window, from which you can open a
+   specific folder containing your code. ***DISCLAIMER***: Only connect to
+   specific folder on the clusters, do not connect to, e.g. `/scratch/gpfs/`.
+   This folder contains all users and all their files. Vscode frequently updates
+   the file explorer. This update takes longer the larger the amount of
+   subdirectories vscode has to scan. In the case of `/home/` or
+   `/scratch/gpfs/`, the amount of subdirectories is immense
+
+### Editing your `~/.ssh/config`
+
+
 
 ## Jupyter Notebooks
 
