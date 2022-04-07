@@ -47,15 +47,21 @@ the default directory of the ssh command. Let's go through this step by step.
 3. Now, you should be able to connect to the remote machine using two ways.
    Either you connect manually by clicking on the `+` indicated by the green
    circle in the above figure and enter your ssh command as you usually connect,
-   you use the configuration of an existing `~/.ssh/config`.
+   or you use the configuration of an existing `~/.ssh/config`. In fact, the former option will add an entry to your `~/.ssh/config`. 
 
-4. After connecting vscode should open a new window, from which you can open a
-   specific folder containing your code. ***DISCLAIMER***: Only connect to
-   specific folder on the clusters, do not connect to, e.g. `/scratch/gpfs/`.
-   This folder contains all users and all their files. Vscode frequently updates
-   the file explorer. This update takes longer the larger the amount of
-   subdirectories vscode has to scan. In the case of `/home/` or
-   `/scratch/gpfs/`, the amount of subdirectories is immense
+4. vscode should open a new window which tries to connect to the remote machine.
+   If successful, you should be able to open a specific folder containing your
+   code just as you would on your local machine with th difference that you are
+   exploring the file system of the remote machine. 
+
+***DISCLAIMER 1***: Only
+connect to specific folder on the clusters, do not connect to, e.g.
+`/scratch/gpfs/`. This folder contains all users and all their files. Vscode
+frequently updates the file explorer. This update takes longer the larger the
+amount of subdirectories vscode has to scan. In the case of `/home/` or
+`/scratch/gpfs/`, the amount of subdirectories is immense
+
+***DISCLAIMER 2***: There are a thousand reasons why your session may not start succesfully. A first step in the debugging process should always be: 'Can I connect to the remote machine via ssh from the terminal to begin with?' If not, there's just no way that vscode could connect either.
 
 ### Editing your `~/.ssh/config`
 
