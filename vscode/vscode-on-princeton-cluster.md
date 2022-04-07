@@ -61,7 +61,7 @@ frequently updates the file explorer. This update takes longer the larger the
 amount of subdirectories vscode has to scan. In the case of `/home/` or
 `/scratch/gpfs/`, the amount of subdirectories is immense
 
-***DISCLAIMER 2***: There are a thousand reasons why your session may not start succesfully. A first step in the debugging process should always be: 'Can I connect to the remote machine via ssh from the terminal to begin with?' If not, there's just no way that vscode could connect either.
+***DISCLAIMER 2***: There are a thousand reasons why your session may not start succesfully. A first step in the debugging process should always be: 'Can I connect to the remote machine via `ssh` from the terminal to begin with?' If not, there's just no way that vscode could connect either.
 
 ### Editing your `~/.ssh/config`
 
