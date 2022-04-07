@@ -33,7 +33,7 @@ the default directory of the ssh command. Let's go through this step by step.
 1. Install vscode (if you haven't yet) -- [vscode](https://code.visualstudio.com)
 2. Install the Remote Development Extension Pack -- [RDE Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack). The RDE should show add a new menu button on the left hand-side indicated by the red circle in the image below.
     <p align="center">
-    <img src="figures/remoteexplorer.png" width="50%" class="center"/>
+    <img src="figures/remoteexplorer.png" width="25%" class="center"/>
     </p>
 
     _Screenshot from local machine. The red circle indicates the button that brings you to the 'Remote Explorer'. The green circle enables you to add a new host manually. The blue circle indicates the button that will open a remote folder that is defined in your `.ssh/config`_
