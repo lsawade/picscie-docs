@@ -59,7 +59,41 @@ the default directory of the ssh command. Let's go through this step by step.
 
 ### Editing your `~/.ssh/config`
 
+An example entry for connecting to `della` in the `~/.ssh/config` could be:
 
+```ssh-config
+Host della.princeton.edu della
+  User <netid>
+  HostName della.princeton.edu
+  ControlMaster auto
+  ControlPersist yes
+  ControlPath ~/.ssh/sockets/%p-%h-%r
+```
+where the `Control*` parameters enable us to stay connected to the cluster. 
+
+Adding a layer of complexity one could add a `ProxyJump` through `tigressgateway`, which ultimately removes the DUO requirement at every connection.
+
+```ssh-config
+Host tigressgateway.princeton.edu tigressgateway
+  HostName tigressgateway.princeton.edu
+  User <netid>
+  ControlMaster auto
+  ControlPersist yes
+  ControlPath ~/.ssh/sockets/%p-%h-%r
+  ServerAliveInterval 300
+  LocalForward 5901 adroit-vis.princeton.edu:5901
+  LocalForward 5902 tigressdata.princeton.edu:5902
+
+Host della.princeton.edu della
+  User <netid>
+  HostName della.princeton.edu
+  ProxyJump tigressgateway.princeton.edu
+  ControlMaster auto
+  ControlPersist yes
+  ControlPath ~/.ssh/sockets/%p-%h-%r
+```
+
+For details on suppressing DUO with a ProxyJump, please visit [Removing Tedium](https://github.com/PrincetonUniversity/removing_tedium/tree/master/01_suppressing_duo#ii-multiplexing-approach-vpn-free).
 
 ## Jupyter Notebooks
 
